@@ -4,7 +4,7 @@ services:
   kurrent-service:
     build:
       context: .
-      dockerfile: docker/Dockerfile
+      dockerfile: Dockerfile
     container_name: kurrent-ocr-api
     ports:
       - "8000:8000"
