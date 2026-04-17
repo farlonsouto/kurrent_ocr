@@ -19,3 +19,4 @@ dependencies:
       - sentencepiece   # Crucial for TrOCR tokenization
       - accelerate      # Required for 'device_map' and GPU loading
       - pillow          # For high-res image handling
+      - scipy            # Required for signal processing in line segmentation

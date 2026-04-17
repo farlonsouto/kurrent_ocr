@@ -18,3 +18,4 @@ dependencies:
       - sentencepiece   # Required for TrOCR tokenization
       - accelerate      # Required for efficient model loading/dispatch
       - pillow          # Essential for processing Archion scans
+      - scipy            # Required for signal processing in line segmentation
