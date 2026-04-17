@@ -1,4 +1,4 @@
-name: kurrent-cpu
+name: kurrent
 channels:
   - pytorch
   - conda-forge

@@ -68,9 +68,9 @@ kurrent-ocr/
    ```
    2. Download the model:
    The model weights will be downloaded automatically into the models/ directory on the first run, or you can pre-fetch them using the huggingface-hub CLI.
-   3. Launch the Service:
+   3. Launch the Service (TARGETS can be either cpu or gpu, both in lower case):
    ```bash 
-   docker-compose up --build
+   docker compose build --build-arg TARGET=gpu
    ```
    
 ## Usage
