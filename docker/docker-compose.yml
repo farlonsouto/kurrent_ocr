@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  kurrent-service:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: kurrent-ocr-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - ./models:/app/models  # Keeps model weights persistent
+    environment:
+      - PYTHONUNBUFFERED=1
+      - MODEL_NAME=dh-unibe/trocr-kurrent-XVI-XVII
+    # GPU CONFIGURATION FOR NVIDIA QUADRO T2000
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    restart: always
+
+networks:
+  default:
+    name: kurrent-net
