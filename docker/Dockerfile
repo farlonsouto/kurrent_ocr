@@ -9,8 +9,11 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /app
 
-# Copy the environment file
+# Copy the environment file - Defaults to GPU accelerated env
 COPY conda/environment.yml .
+# Uncomment the below line to run on CPU only
+# COPY conda/environment-cpu.yml ./environment.yml
+
 
 # Create the Conda environment
 RUN conda env create -f environment.yml
