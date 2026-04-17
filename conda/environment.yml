@@ -1,17 +1,21 @@
 name: kurrent
 channels:
-  - conda-forge
   - pytorch
+  - nvidia          # Required for CUDA toolkit
+  - conda-forge
 dependencies:
   - python=3.10
   - pytorch
   - torchvision
+  - pytorch-cuda=11.8  # Match this to your NVIDIA driver (11.8 is the safest bet for T2000)
   - pip
   - pip:
       - transformers
       - fastapi
       - uvicorn
-      - python-multipart  # Required for uploading images
+      - python-multipart
       - opencv-python-headless
-      - safetensors       # Modern model format used by dh-unibe
-
+      - safetensors
+      - sentencepiece   # Crucial for TrOCR tokenization
+      - accelerate      # Required for 'device_map' and GPU loading
+      - pillow          # For high-res image handling
