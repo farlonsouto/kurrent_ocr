@@ -1,0 +1,17 @@
+name: kurrent
+channels:
+  - conda-forge
+  - pytorch
+dependencies:
+  - python=3.10
+  - pytorch
+  - torchvision
+  - pip
+  - pip:
+      - transformers
+      - fastapi
+      - uvicorn
+      - python-multipart  # Required for uploading images
+      - opencv-python-headless
+      - safetensors       # Modern model format used by dh-unibe
+
