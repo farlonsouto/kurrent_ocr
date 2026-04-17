@@ -14,22 +14,38 @@ The architecture follows a Microservices approach, allowing you to maintain a cl
 ## 📁 Project Structure
 
 kurrent-ocr/
+
 ├── conda/
+
 │   └── environment.yml       # Conda environment definition
+
 ├── docker/
+
 │   ├── Dockerfile            # Miniconda-based build
+
 │   └── docker-compose.yml    # Orchestration & Volume mounting
+
 ├── models/                   # Local model weights (gitignored)
+
 ├── src/
+
 │   ├── api/
+
 │   │   └── main.py           # FastAPI endpoints (OpenAI-compatible)
+
 │   ├── core/
+
 │   │   ├── segmenter.py      # Page-to-line segmentation logic
+
 │   │   └── inference.py      # TrOCR model execution
+
 │   └── utils/
+
 │       └── image_prep.py     # Binarization & Contrast enhancement
+
 └── data/
-    └── input/                # High-res Archion scans for processing
+
+    └── input/                # High-res script scans images for processing
 
 ## ⚙️ Key Features
 
@@ -46,16 +62,16 @@ kurrent-ocr/
 ## Installation
 
    1. Clone the repository:
-   
-   git clone https://github.com
+   ```bash
+   git clone https://github.com/farlonsouto/kurrent_ocr.git
    cd kurrent-ocr
-   
+   ```
    2. Download the model:
    The model weights will be downloaded automatically into the models/ directory on the first run, or you can pre-fetch them using the huggingface-hub CLI.
    3. Launch the Service:
-   
+   ```bash 
    docker-compose up --build
-   
+   ```
    
 ## Usage
 Submit a single Archion page for transcription via POST request:
