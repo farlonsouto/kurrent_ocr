@@ -1,4 +1,4 @@
-FROM continuumio/miniconda3:latest
+FROM pytorch/pytorch:2.2.2-cuda11.8-cudnn8-devel
 
 # 1. Define the switch (default to gpu)
 ARG TARGET=gpu
@@ -13,14 +13,12 @@ WORKDIR /app
 # 2. Copy the entire conda folder so both files are available during build
 COPY conda/ ./conda/
 
-# 3. Use shell logic to pick the file based on the TARGET arg
-RUN conda config --set remote_read_timeout_secs 600 && \
-    conda config --set remote_connect_timeout_secs 60 && \
-    conda config --set remote_max_retries 5 && \
+# 3. Use shell logic and the more memory-efficient 'update' command
+RUN conda config --set solver libmamba && \
     if [ "$TARGET" = "gpu" ]; then \
-        conda env create -f conda/environment-gpu.yml; \
+        conda env update -n base -f conda/environment-gpu.yml; \
     else \
-        conda env create -f conda/environment-cpu.yml; \
+        conda env update -n base -f conda/environment-cpu.yml; \
     fi && \
     conda clean -afy
 

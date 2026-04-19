@@ -1,7 +1,8 @@
-version: '3.8'
 
 services:
-  kurrent-service:
+  kurrent-api:
+    networks:
+      - kurrent-network
     build:
       context: .
       dockerfile: Dockerfile
@@ -21,9 +22,9 @@ services:
           devices:
             - driver: nvidia
               count: 1
-              capabilities: [gpu]
+              capabilities: [ gpu ]
     restart: always
 
 networks:
-  default:
-    name: kurrent-net
+  kurrent-network:
+    external: true

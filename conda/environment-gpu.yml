@@ -5,7 +5,8 @@ channels:
   - conda-forge
 dependencies:
   - python=3.10
-  - pytorch
+  - numpy<2.0.0 
+  - pytorch>=2.4.0
   - torchvision
   - pytorch-cuda=11.8  # Match this to your NVIDIA driver (11.8 is the safest bet for T2000)
   - pip
@@ -20,3 +21,5 @@ dependencies:
       - accelerate      # Required for 'device_map' and GPU loading
       - pillow          # For high-res image handling
       - scipy            # Required for signal processing in line segmentation
+      
+      
