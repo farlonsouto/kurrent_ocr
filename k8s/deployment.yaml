@@ -16,9 +16,13 @@ spec:
     spec:
       containers:
       - name: api
-        image: farlonsouto/kurrent_ocr:latest
+        # Updated to match your 'docker images' output
+        image: kurrent_ocr-kurrent-api:latest
+        # Vital for local images to prevent "Pull" errors
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8000
         resources:
           limits:
-            nvidia.com/gpu: 1  # Real hardware request
+            nvidia.com/gpu: 1
+
