@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kurrent-ocr-api
+  labels:
+    app: kurrent-ocr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kurrent-ocr-api
+  template:
+    metadata:
+      labels:
+        app: kurrent-ocr-api
+    spec:
+      containers:
+      - name: api
+        image: farlonsouto/kurrent_ocr:latest
+        ports:
+        - containerPort: 8000
+        resources:
+          limits:
+            nvidia.com/gpu: 1  # Real hardware request

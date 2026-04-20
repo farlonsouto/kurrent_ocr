@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kurrent-ocr-service # fixed name. Easier discovery
+spec:
+  selector:
+    app: kurrent-ocr-api
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
