@@ -19,7 +19,7 @@ spec:
         # Updated to match the local 'docker images' output
         image: kurrent_ocr-kurrent-api:latest
         # Vital for local images to prevent "Pull" errors
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Never
         ports:
         - containerPort: 8000
         resources:

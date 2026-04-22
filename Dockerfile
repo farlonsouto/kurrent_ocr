@@ -8,6 +8,8 @@ RUN apt-get update && apt-get install -y \
     libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
+RUN mkdir -p data/debug
+
 WORKDIR /app
 
 # 2. Copy the entire conda folder so both files are available during build
