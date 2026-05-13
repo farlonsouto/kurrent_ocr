@@ -9,7 +9,6 @@ Hesse/Frankfurt regions).
 Transcribing 18th-century parish records is a unique challenge due to the angular nature of Kurrentschrift, faded
 iron-gall ink, and complex layout structures. This project wraps the state-of-the-art TrOCR model fine-tuned by the
 University of Bern (dh-unibe/trocr-kurrent-XVI-XVII) within a containerized Python environment.
-The architecture follows a Mbackend.
 
 ## 🛠 Tech Stack
 
